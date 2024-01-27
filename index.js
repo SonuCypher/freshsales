@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 
 const CRM_API_KEY = ''; // Replace with your actual token
-const CRM_API_URL = '';
+const CRM_API_URL = ''; // Replace with your actual URL BUNDLE ALIAS
 
 // console.log(API_URL)
 
@@ -68,6 +68,22 @@ app.post('/api/updateContact/:id',async(req,res)=>{
                 mobile_number
             }
         },{
+            headers: {
+                'Authorization': `Token token=${CRM_API_KEY}`,
+                'Content-Type': 'application/json',
+              },
+        })
+        res.json(response.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error getting contact');
+    }
+})
+app.post('/api/deleteContact/:id',async(req,res)=>{
+    try {
+        const {id} = req.params
+
+        const response = await axios.delete(`${CRM_API_URL}/${id}`,{
             headers: {
                 'Authorization': `Token token=${CRM_API_KEY}`,
                 'Content-Type': 'application/json',
