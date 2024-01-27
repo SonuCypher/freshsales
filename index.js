@@ -2,8 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-const CRM_API_KEY = 'jiEkM_OGtBwFOonIMq13KQ'; // Replace with your actual token
-const CRM_API_URL = 'https://abdulsuhaib07.myfreshworks.com/crm/sales/api/contacts';
+const CRM_API_KEY = ''; // Replace with your actual token
+const CRM_API_URL = '';
 
 // console.log(API_URL)
 
